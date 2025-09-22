@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cknkn00ke7mm"]
+
+[ext_resource type="Script" uid="uid://bgwjm8pl6evka" path="res://scenes/player/player.gd" id="1_cv8i6"]
+[ext_resource type="Texture2D" uid="uid://cdpm0dnoq4qxw" path="res://Godot-Placeholder-Sprites-main/Diamond/Sprite-0001.png" id="2_bqikr"]
+[ext_resource type="Script" uid="uid://dnph0srmlbdbo" path="res://scenes/player/player_input.gd" id="3_uw145"]
+[ext_resource type="Script" uid="uid://btxvhmufbxdw8" path="res://scenes/player/gravity.gd" id="4_3mpri"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3v36"]
+
+[node name="PlayerNode" type="CharacterBody2D"]
+script = ExtResource("1_cv8i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bqikr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p3v36")
+
+[node name="InputNode" type="Node2D" parent="."]
+script = ExtResource("3_uw145")
+
+[node name="GravityNode" type="Node2D" parent="."]
+script = ExtResource("4_3mpri")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd41befhw770s"]
+
+[ext_resource type="PackedScene" uid="uid://cknkn00ke7mm" path="res://scenes/player/player_node.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://b43v4rwabg5fq" path="res://Godot-Placeholder-Sprites-main/Square/Square-0002.png" id="2_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(496, 81)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerNode" parent="." instance=ExtResource("1_0xm2m")]
+position = Vector2(581, 273)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(583, 427)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1.5000153, -29.999996)
+scale = Vector2(15.468751, 2.5000002)
+texture = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -30.5)
+shape = SubResource("RectangleShape2D_1bvp3")
