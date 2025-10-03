@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt855vrc7eg8a"]
+
+[ext_resource type="Script" uid="uid://c1wpmsgf6v5r1" path="res://text_obj_parent.gd" id="1_gpnjj"]
+[ext_resource type="PackedScene" uid="uid://gs10gvivkgla" path="res://textobj.tscn" id="2_gwf18"]
+[ext_resource type="PackedScene" uid="uid://cknkn00ke7mm" path="res://scenes/player/player_node.tscn" id="3_s68rb"]
+[ext_resource type="Texture2D" uid="uid://b43v4rwabg5fq" path="res://Godot-Placeholder-Sprites-main/Square/Square-0002.png" id="4_rmi5a"]
+[ext_resource type="PackedScene" uid="uid://vasvitis0md7" path="res://gui.tscn" id="5_gyehq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(496, 81)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(100, 100)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextObjParent" type="Node2D" parent="."]
+position = Vector2(251, 122)
+script = ExtResource("1_gpnjj")
+
+[node name="StaticText" parent="TextObjParent" instance=ExtResource("2_gwf18")]
+position = Vector2(158, 382)
+
+[node name="PlayerNode" parent="." instance=ExtResource("3_s68rb")]
+position = Vector2(154, 488)
+target_scene = "prototype3"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2102, 385.00003)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1.5000153, -29.999996)
+scale = Vector2(15.468751, 2.5000002)
+texture = ExtResource("4_rmi5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -30.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(320.00003, 629)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(1.5000153, -29.999996)
+scale = Vector2(15.468751, 2.5000002)
+texture = ExtResource("4_rmi5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1, -30.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1385, 623)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(1.5000153, -29.999996)
+scale = Vector2(15.468751, 2.5000002)
+texture = ExtResource("4_rmi5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1, -30.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Control" parent="." instance=ExtResource("5_gyehq")]
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 980.0
+offset_top = 9.0
+offset_right = 1605.0
+offset_bottom = 64.0
+text = "Ah. Seems you'll need a bridge."
+label_settings = SubResource("LabelSettings_lquwl")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1536, 464)
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lquwl")
+
+[connection signal="body_entered" from="Area2D" to="PlayerNode" method="_on_area_2d_body_entered"]

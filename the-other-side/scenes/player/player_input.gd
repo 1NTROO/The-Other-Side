@@ -11,3 +11,7 @@ func _physics_process(_delta: float) -> void:
 
 func handle_horizontal_movement(body: CharacterBody2D):
 	body.velocity.x = input_horizontal * speed
+	
+func get_jump_input() -> bool:
+	return Input.is_action_just_pressed("jump")
+	

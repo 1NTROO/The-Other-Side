@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://gs10gvivkgla"]
+
+[ext_resource type="Script" uid="uid://bcyojojcde27q" path="res://textobj.gd" id="1_tfadq"]
+[ext_resource type="Script" uid="uid://c8erk7bmjbj57" path="res://text_obj_value.gd" id="2_hgprc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5tx3"]
+size = Vector2(105, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfadq"]
+font_size = 28
+
+[node name="StaticText" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_tfadq")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a5tx3")
+
+[node name="Label" type="Label" parent="Collider"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "stairs"
+label_settings = SubResource("LabelSettings_tfadq")
+script = ExtResource("2_hgprc")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
