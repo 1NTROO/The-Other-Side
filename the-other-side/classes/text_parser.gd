@@ -10,5 +10,5 @@ func parse(text):
 		'walk right': return InstructionSet.WALK_RIGHT
 		
 		'stop': return InstructionSet.STOP
-		
+				
 	return InstructionSet.CREATE

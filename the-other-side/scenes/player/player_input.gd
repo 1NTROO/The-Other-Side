@@ -2,7 +2,7 @@ class_name InputComponent
 extends Node2D
 
 @export_subgroup("Settings")
-@export var speed = 100
+@export var speed = 250	
 
 var input_horizontal: float = 0.0
 

@@ -24,6 +24,9 @@ script = ExtResource("1_gpnjj")
 [node name="StaticText" parent="TextObjParent" instance=ExtResource("2_gwf18")]
 position = Vector2(158, 382)
 
+[node name="Label" parent="TextObjParent/StaticText/Collider" index="0"]
+text = "bridge"
+
 [node name="PlayerNode" parent="." instance=ExtResource("3_s68rb")]
 position = Vector2(154, 488)
 target_scene = "prototype3"
@@ -72,6 +75,11 @@ offset_right = 1600.0
 offset_bottom = 900.0
 mouse_filter = 2
 
+[node name="PlayerLineInput" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+allowed_strings = ["bridge"]
+narrator_buildup = ["A gap in the road. A bridge would solve this problem.", "That's not a bridge. I said a bridge would solve this problem.", "[i]sigh[/i] Still not a bridge...", "Whatever you just did still isn't a bridge, is it?"]
+narrator_random = ["A BRIDGE. B R I D G E. [b]BRIDGE.[/b]", "You are SO. UN. BE. LIEVABLY. DUMB."]
+
 [node name="Label" type="Label" parent="."]
 offset_left = 980.0
 offset_top = 9.0
@@ -88,3 +96,6 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_lquwl")
 
 [connection signal="body_entered" from="Area2D" to="PlayerNode" method="_on_area_2d_body_entered"]
+
+[editable path="TextObjParent/StaticText"]
+[editable path="Control"]

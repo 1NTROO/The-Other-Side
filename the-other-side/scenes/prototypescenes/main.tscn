@@ -18,12 +18,12 @@ size = Vector2(100, 100)
 [node name="Node2D" type="Node2D"]
 
 [node name="TextObjParent" type="Node2D" parent="."]
-visible = false
+clip_children = 1
 position = Vector2(251, 122)
 script = ExtResource("1_hb6va")
 
 [node name="StaticText" parent="TextObjParent" instance=ExtResource("2_of8du")]
-position = Vector2(158, 382)
+position = Vector2(153, 380)
 
 [node name="PlayerNode" parent="." instance=ExtResource("3_jp2cc")]
 position = Vector2(154, 488)
@@ -73,7 +73,13 @@ offset_right = 1600.0
 offset_bottom = 900.0
 mouse_filter = 2
 
+[node name="PlayerLineInput" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+allowed_strings = ["stairs"]
+narrator_buildup = ["To get up, you decide to create more stairs.", "Sorry, perhaps I didn't say it clearly enough. You decide to create more stairs.", "[b]You decide to create more stairs.[/b]", "What is wrong with you? Just create some stairs. How hard is it?"]
+narrator_random = ["JUST. CREATE. SOME. FUCKING. [b]STAIRS!![/b]", "WHAT IS [b]WRONG[/b] WITH YOU??"]
+
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 980.0
 offset_top = 9.0
 offset_right = 1605.0
@@ -89,3 +95,6 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_lquwl")
 
 [connection signal="body_entered" from="Area2D" to="PlayerNode" method="_on_area_2d_body_entered"]
+
+[editable path="TextObjParent/StaticText"]
+[editable path="Control"]

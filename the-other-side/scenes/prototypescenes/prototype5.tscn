@@ -72,6 +72,9 @@ offset_right = 1600.0
 offset_bottom = 900.0
 mouse_filter = 2
 
+[node name="PlayerLineInput" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+allowed_strings = ["stairs", "bridge"]
+
 [node name="Label" type="Label" parent="."]
 offset_left = 980.0
 offset_top = 7.0
@@ -88,3 +91,5 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_lquwl")
 
 [connection signal="body_entered" from="Area2D" to="PlayerNode" method="_on_area_2d_body_entered"]
+
+[editable path="Control"]

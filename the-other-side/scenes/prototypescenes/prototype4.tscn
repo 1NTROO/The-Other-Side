@@ -72,13 +72,18 @@ offset_right = 1600.0
 offset_bottom = 900.0
 mouse_filter = 2
 
+[node name="PlayerLineInput" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+allowed_strings = ["stairs"]
+narrator_buildup = ["To get up, you decide to create more stairs.", "Sorry, perhaps I didn't say it clearly enough. You decide to create more stairs.", "[b]You decide to create more stairs.[/b]", "What is wrong with you? Just create some stairs. How hard is it?"]
+narrator_random = ["JUST. CREATE. SOME. FUCKING. [b]STAIRS!![/b]", "WHAT IS [b]WRONG[/b] WITH YOU??"]
+
 [node name="Label" type="Label" parent="."]
 offset_left = 980.0
 offset_top = 7.0
 offset_right = 1605.0
 offset_bottom = 120.0
-text = "You will find a way, or you will
-make one."
+text = "Stairs go up, stairs go down.
+There's a metaphor in that."
 label_settings = SubResource("LabelSettings_lquwl")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -89,3 +94,5 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_lquwl")
 
 [connection signal="body_entered" from="Area2D" to="PlayerNode" method="_on_area_2d_body_entered"]
+
+[editable path="Control"]
